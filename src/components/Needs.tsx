@@ -1,17 +1,7 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
 import { AlertCircle, TrendingUp, Users, Heart, Globe, ArrowDown } from 'lucide-react';
 
 export function Needs() {
-    const containerRef = useRef<HTMLDivElement>(null);
-
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start end", "end start"]
-    });
-
-    const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
-
     const problems = [
         {
             title: "Adaptasyon Sorunu",
@@ -41,7 +31,7 @@ export function Needs() {
     ];
 
     return (
-        <section id="needs" ref={containerRef} className="relative min-h-screen py-32 bg-[#050505] overflow-hidden">
+        <section id="needs" className="relative min-h-screen py-32 bg-[#050505] overflow-hidden">
 
             {/* Decorative Background */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -69,39 +59,49 @@ export function Needs() {
             <div className="container mx-auto px-6 md:px-12 relative z-10">
 
                 {/* Header */}
-                <motion.div
-                    style={{ y }}
-                    className="max-w-4xl mb-24"
-                >
+                <div className="max-w-4xl mb-24">
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
                         className="flex items-center gap-4 mb-6"
                     >
                         <div className="h-px w-12 bg-white/20" />
                         <span className="text-white/60 font-medium tracking-widest uppercase text-sm">Tespit & Çözüm</span>
                     </motion.div>
 
-                    <h2 className="text-5xl md:text-7xl font-light text-white mb-8 leading-tight">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="text-5xl md:text-7xl font-light text-white mb-8 leading-tight"
+                    >
                         İhtiyaçlarınızın <br />
                         <span className="font-bold text-white">Farkındayız.</span>
-                    </h2>
+                    </motion.h2>
 
-                    <p className="text-xl text-gray-400 max-w-2xl leading-relaxed font-light">
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.4 }}
+                        className="text-xl text-gray-400 max-w-2xl leading-relaxed font-light"
+                    >
                         Satış operasyonlarınızda aşağıdaki darboğazlardan en az birini yaşıyorsanız, doğru yerdesiniz.
-                    </p>
-                </motion.div>
+                    </motion.p>
+                </div>
 
                 {/* Minimal Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 border border-white/10 rounded-3xl overflow-hidden">
                     {problems.map((item, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
+                            transition={{ delay: index * 0.1, duration: 0.5 }}
                             className="group relative p-10 bg-[#0a0a0a] hover:bg-[#0f0f0f] transition-colors duration-500 flex flex-col justify-between min-h-[320px]"
                         >
 

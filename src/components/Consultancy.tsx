@@ -1,5 +1,4 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
 import {
     Users,
     Coins,
@@ -10,14 +9,6 @@ import {
 } from 'lucide-react';
 
 export function Consultancy() {
-    const containerRef = useRef<HTMLDivElement>(null);
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start end", "end start"]
-    });
-
-    const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
-
     const services = [
         {
             id: "01",
@@ -58,7 +49,7 @@ export function Consultancy() {
     ];
 
     return (
-        <section id="consultancy" ref={containerRef} className="relative min-h-screen py-20 bg-[#050505] overflow-hidden">
+        <section id="consultancy" className="relative min-h-screen py-20 bg-[#050505] overflow-hidden">
 
             {/* Background Elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -69,29 +60,39 @@ export function Consultancy() {
             <div className="container mx-auto px-6 md:px-12 relative z-10">
 
                 {/* Header */}
-                <motion.div
-                    style={{ y }}
-                    className="max-w-4xl mb-24"
-                >
+                <div className="max-w-4xl mb-24">
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
                         className="flex items-center gap-4 mb-6"
                     >
                         <div className="h-px w-12 bg-blue-500" />
                         <span className="text-blue-400 font-medium tracking-widest uppercase text-sm">Danışmanlık</span>
                     </motion.div>
 
-                    <h2 className="text-5xl md:text-7xl font-light text-white mb-8 leading-tight">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="text-5xl md:text-7xl font-light text-white mb-8 leading-tight"
+                    >
                         Sistem Kuruyor, <br />
                         <span className="font-bold text-white">Süreci Yönetiyoruz.</span>
-                    </h2>
+                    </motion.h2>
 
-                    <p className="text-xl text-gray-400 max-w-2xl leading-relaxed font-light">
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.4 }}
+                        className="text-xl text-gray-400 max-w-2xl leading-relaxed font-light"
+                    >
                         Satış operasyonunuzu şansa bırakmıyoruz. Ekip kurulumundan prim sistemine kadar, <span className="text-white font-medium">satışın matematiğini ve psikolojisini</span> sizin için kurguluyoruz.
-                    </p>
-                </motion.div>
+                    </motion.p>
+                </div>
 
                 {/* Services Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32">
@@ -101,7 +102,7 @@ export function Consultancy() {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
+                            transition={{ delay: index * 0.1, duration: 0.5 }}
                             className="group relative p-10 rounded-3xl bg-[#0a0a0a] border border-white/5 hover:border-blue-500/30 transition-all duration-500"
                         >
                             <div className="absolute top-10 right-10 text-8xl font-black text-white/5 select-none group-hover:text-blue-500/5 transition-colors duration-500">
@@ -133,6 +134,7 @@ export function Consultancy() {
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
                     className="relative rounded-[3rem] bg-gradient-to-br from-[#0f0f0f] to-[#050505] border border-white/10 p-12 md:p-20 text-center overflow-hidden"
                 >
                     <div className="absolute inset-0 bg-[url('/noise.png')] opacity-20" />

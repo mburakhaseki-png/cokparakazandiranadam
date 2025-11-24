@@ -1,26 +1,16 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
 import { Target, TrendingUp, Award, Zap, BookOpen, Users, Mic } from 'lucide-react';
 
 export function About() {
-    const containerRef = useRef<HTMLDivElement>(null);
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start end", "end start"]
-    });
-
-    const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
-    const opacity = useTransform(scrollYProgress, [0, 0.2, 0.9, 1], [0, 1, 1, 0]);
-
     const cardVariants = {
-        hidden: { opacity: 0, y: 50 },
+        hidden: { opacity: 0, y: 20 },
         visible: (i: number) => ({
             opacity: 1,
             y: 0,
             transition: {
                 delay: i * 0.1,
-                duration: 0.8,
-                ease: [0.22, 1, 0.36, 1] as const
+                duration: 0.6,
+                ease: "easeOut" as const
             }
         })
     };
@@ -37,7 +27,7 @@ export function About() {
     ];
 
     return (
-        <section id="about" ref={containerRef} className="relative min-h-screen py-24 bg-[#050505] overflow-hidden">
+        <section id="about" className="relative min-h-screen py-24 bg-[#050505] overflow-hidden">
             {/* Abstract Background Elements */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-900/10 rounded-full blur-[120px] pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-900/10 rounded-full blur-[120px] pointer-events-none" />
@@ -46,7 +36,10 @@ export function About() {
 
                 {/* Section Header with Parallax */}
                 <motion.div
-                    style={{ y, opacity }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
                     className="mb-20 md:mb-32"
                 >
                     <h2 className="text-5xl md:text-8xl font-black tracking-tighter text-white mb-4">
@@ -63,7 +56,7 @@ export function About() {
                         custom={0}
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ once: true, margin: "-100px" }}
+                        viewport={{ once: true, margin: "-50px" }}
                         variants={cardVariants}
                         className="md:col-span-7 group relative p-8 md:p-12 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors duration-500"
                     >
@@ -81,7 +74,7 @@ export function About() {
                         custom={1}
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ once: true, margin: "-100px" }}
+                        viewport={{ once: true, margin: "-50px" }}
                         variants={cardVariants}
                         className="md:col-span-5 group relative p-8 md:p-12 rounded-3xl bg-gradient-to-br from-purple-900/40 to-black border border-purple-500/30 hover:border-purple-500/60 transition-all duration-500 overflow-hidden"
                     >
@@ -105,7 +98,7 @@ export function About() {
                         custom={2}
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ once: true, margin: "-100px" }}
+                        viewport={{ once: true, margin: "-50px" }}
                         variants={cardVariants}
                         className="md:col-span-12 group relative p-8 md:p-12 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors duration-500 flex flex-col md:flex-row gap-8 items-start md:items-center"
                     >

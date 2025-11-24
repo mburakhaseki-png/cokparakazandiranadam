@@ -1,5 +1,4 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
 import {
     Stethoscope,
     Search,
@@ -15,14 +14,6 @@ import {
 } from 'lucide-react';
 
 export function Solutions() {
-    const containerRef = useRef<HTMLDivElement>(null);
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start end", "end start"]
-    });
-
-    const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
-
     const methodology = [
         {
             title: "Saha Ziyareti & Analiz",
@@ -83,7 +74,7 @@ export function Solutions() {
     ];
 
     return (
-        <section id="solutions" ref={containerRef} className="relative min-h-screen py-20 bg-[#050505] overflow-hidden">
+        <section id="solutions" className="relative min-h-screen py-20 bg-[#050505] overflow-hidden">
 
             {/* Decorative Background */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -112,29 +103,39 @@ export function Solutions() {
             <div className="container mx-auto px-6 md:px-12 relative z-10">
 
                 {/* Header */}
-                <motion.div
-                    style={{ y }}
-                    className="max-w-4xl mb-20"
-                >
+                <div className="max-w-4xl mb-20">
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
                         className="flex items-center gap-4 mb-4"
                     >
                         <div className="h-px w-8 bg-purple-500" />
                         <span className="text-purple-400 font-medium tracking-widest uppercase text-xs">Çözümlerimiz</span>
                     </motion.div>
 
-                    <h2 className="text-4xl md:text-6xl font-light text-white mb-6 leading-tight">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="text-4xl md:text-6xl font-light text-white mb-6 leading-tight"
+                    >
                         Size Nasıl <br />
                         <span className="font-bold text-white">Yardımcı Oluyoruz?</span>
-                    </h2>
+                    </motion.h2>
 
-                    <p className="text-lg text-gray-400 max-w-2xl leading-relaxed font-light">
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.4 }}
+                        className="text-lg text-gray-400 max-w-2xl leading-relaxed font-light"
+                    >
                         Ezbere eğitimler değil, <span className="text-white font-medium">"Satış Doktoru"</span> titizliğiyle teşhis koyup, terzi usulü çözümler üretiyoruz.
-                    </p>
-                </motion.div>
+                    </motion.p>
+                </div>
 
                 {/* 1. Methodology (Process) */}
                 <div className="mb-24">
@@ -147,10 +148,10 @@ export function Solutions() {
                         {methodology.map((step, index) => (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, y: 10 }}
+                                initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
+                                transition={{ delay: index * 0.1, duration: 0.5 }}
                                 className="group p-6 rounded-2xl bg-[#0a0a0a] border border-white/5 hover:border-purple-500/30 transition-colors duration-300"
                             >
                                 <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-white mb-4 group-hover:bg-purple-500 group-hover:text-white transition-all duration-300">
@@ -174,9 +175,10 @@ export function Solutions() {
                         {services.map((service, index) => (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0 }}
-                                whileInView={{ opacity: 1 }}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
+                                transition={{ delay: index * 0.1, duration: 0.5 }}
                                 className="group p-6 rounded-2xl bg-[#0a0a0a] border border-white/5 hover:border-white/10 transition-all duration-300 flex items-start gap-4"
                             >
                                 <div className="p-3 rounded-lg bg-white/5 text-gray-300 group-hover:text-white transition-colors">
@@ -202,9 +204,10 @@ export function Solutions() {
                         {programs.map((program, index) => (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0 }}
-                                whileInView={{ opacity: 1 }}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
+                                transition={{ delay: index * 0.1, duration: 0.5 }}
                                 className="group p-6 rounded-2xl bg-[#0a0a0a] border border-white/5 hover:border-purple-500/30 transition-all duration-300"
                             >
                                 <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform duration-300">
@@ -222,6 +225,7 @@ export function Solutions() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
                     className="relative rounded-3xl overflow-hidden bg-white/5 border border-white/10 p-12 text-center"
                 >
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">

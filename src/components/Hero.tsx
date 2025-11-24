@@ -21,9 +21,9 @@ export function Hero() {
                 {/* Main Title */}
                 <div className="relative mb-8">
                     <motion.h1
-                        initial={{ opacity: 0, x: -100 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
                         className="text-7xl md:text-9xl font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/50 leading-[1.1] pb-4"
                     >
                         MURAT
@@ -34,9 +34,9 @@ export function Hero() {
 
                 {/* Subtitle / Nickname */}
                 <motion.div
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.5, duration: 0.8 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
                     className="mb-8 relative"
                 >
                     <div className="absolute inset-0 bg-purple-500/20 blur-2xl rounded-full" />
@@ -49,7 +49,7 @@ export function Hero() {
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.7, duration: 0.8 }}
+                    transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
                     className="mb-12 max-w-3xl text-white/90 text-lg md:text-xl font-light italic leading-relaxed"
                 >
                     "Satış ve liderlikte kalıcı başarı; ancak beden, ruh ve herşeyini yılmadan ortaya koyarsan ve hedef kitleni mutlu edersen gelir."
@@ -57,9 +57,9 @@ export function Hero() {
 
                 {/* CTA Buttons */}
                 <motion.div
-                    initial={{ opacity: 0, y: 40 }}
+                    initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.8, duration: 0.8 }}
+                    transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
                     className="flex flex-col md:flex-row items-center gap-6"
                 >
                     <a href="#contact" className="group relative px-8 py-4 bg-white text-black font-bold rounded-full overflow-hidden inline-block">
