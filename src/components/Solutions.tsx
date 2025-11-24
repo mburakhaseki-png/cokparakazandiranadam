@@ -232,10 +232,10 @@ export function Solutions() {
                         Satış Ekibinizin <span className="text-purple-400">Röntgenini Çekelim.</span>
                     </h2>
 
-                    <button className="inline-flex items-center gap-3 px-8 py-4 bg-white text-black rounded-full font-bold text-sm hover:bg-purple-500 hover:text-white transition-all duration-300">
+                    <a href="#contact" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-black rounded-full font-bold text-sm hover:bg-purple-500 hover:text-white transition-all duration-300">
                         Hemen İletişime Geçin
                         <ArrowRight className="w-4 h-4" />
-                    </button>
+                    </a>
                 </motion.div>
 
             </div>
