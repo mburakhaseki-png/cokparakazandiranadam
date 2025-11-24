@@ -1,10 +1,9 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { AlertCircle, TrendingUp, Users, Heart, Globe, ArrowDown } from 'lucide-react';
 
 export function Needs() {
     const containerRef = useRef<HTMLDivElement>(null);
-    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -103,8 +102,6 @@ export function Needs() {
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            onMouseEnter={() => setHoveredIndex(index)}
-                            onMouseLeave={() => setHoveredIndex(null)}
                             className="group relative p-10 bg-[#0a0a0a] hover:bg-[#0f0f0f] transition-colors duration-500 flex flex-col justify-between min-h-[320px]"
                         >
 
