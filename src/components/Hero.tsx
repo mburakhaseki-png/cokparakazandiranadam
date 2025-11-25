@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 
 export function Hero() {
     return (
-        <section className="relative w-full flex-1 flex items-center overflow-hidden bg-[#050505]">
+        <section className="relative w-full h-screen min-h-screen flex items-center overflow-hidden bg-[#050505]">
             {/* Background Image */}
             <div
                 className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
