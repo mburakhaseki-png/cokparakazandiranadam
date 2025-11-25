@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Users, Phone, Share2, Globe, Network } from 'lucide-react';
+import { Users, Phone, Share2, Network } from 'lucide-react';
 
 export function Networking() {
     const stats = [
