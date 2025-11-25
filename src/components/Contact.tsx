@@ -1,3 +1,5 @@
+import { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
 import {
     Phone,
@@ -15,8 +17,38 @@ import {
 } from 'lucide-react';
 
 export function Contact() {
+    const form = useRef<HTMLFormElement>(null);
+    const [isLoading, setIsLoading] = useState(false);
+    const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    const sendEmail = (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsLoading(true);
+        setStatus('idle');
+
+        // REPLACE THESE WITH YOUR ACTUAL EMAILJS KEYS
+        const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+        const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+        const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+        if (form.current) {
+            emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
+                .then((result) => {
+                    console.log(result.text);
+                    setStatus('success');
+                    form.current?.reset();
+                }, (error) => {
+                    console.log(error.text);
+                    setStatus('error');
+                })
+                .finally(() => {
+                    setIsLoading(false);
+                });
+        }
     };
 
     return (
@@ -143,12 +175,14 @@ export function Contact() {
                         <div className="relative bg-[#0a0a0a] border border-white/10 rounded-3xl p-6 md:p-12">
                             <h3 className="text-2xl font-bold text-white mb-6 md:mb-8 text-center md:text-left">Bize Yazın</h3>
 
-                            <form className="space-y-4 md:space-y-6">
+                            <form ref={form} onSubmit={sendEmail} className="space-y-4 md:space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                                     <div className="space-y-2">
                                         <label className="text-sm text-gray-400 font-medium ml-1">Ad Soyad</label>
                                         <input
                                             type="text"
+                                            name="user_name"
+                                            required
                                             className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-base focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all"
                                             placeholder="Adınız Soyadınız"
                                         />
@@ -157,6 +191,8 @@ export function Contact() {
                                         <label className="text-sm text-gray-400 font-medium ml-1">E-Posta</label>
                                         <input
                                             type="email"
+                                            name="user_email"
+                                            required
                                             className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-base focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all"
                                             placeholder="ornek@sirket.com"
                                         />
@@ -167,6 +203,8 @@ export function Contact() {
                                     <label className="text-sm text-gray-400 font-medium ml-1">Konu</label>
                                     <input
                                         type="text"
+                                        name="subject"
+                                        required
                                         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-base focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all"
                                         placeholder="Mesajınızın konusu"
                                     />
@@ -175,6 +213,8 @@ export function Contact() {
                                 <div className="space-y-2">
                                     <label className="text-sm text-gray-400 font-medium ml-1">İçerik</label>
                                     <textarea
+                                        name="message"
+                                        required
                                         rows={4}
                                         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-base focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all resize-none"
                                         placeholder="Mesajınız..."
@@ -182,12 +222,20 @@ export function Contact() {
                                 </div>
 
                                 <button
-                                    type="button"
-                                    className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white font-bold py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group"
+                                    type="submit"
+                                    disabled={isLoading}
+                                    className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white font-bold py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
-                                    Gönder
-                                    <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                    {isLoading ? 'Gönderiliyor...' : 'Gönder'}
+                                    {!isLoading && <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />}
                                 </button>
+
+                                {status === 'success' && (
+                                    <p className="text-green-400 text-center text-sm mt-2">Mesajınız başarıyla gönderildi!</p>
+                                )}
+                                {status === 'error' && (
+                                    <p className="text-red-400 text-center text-sm mt-2">Bir hata oluştu. Lütfen tekrar deneyin.</p>
+                                )}
                             </form>
                         </div>
                     </motion.div>
