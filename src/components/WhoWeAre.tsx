@@ -61,8 +61,8 @@ export function WhoWeAre() {
                     </motion.div>
                 </div>
 
-                {/* Companies Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+                {/* Companies Grid - Desktop */}
+                <div className="hidden md:grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
 
                     {/* GrowX - İzmir */}
                     <motion.div
@@ -146,8 +146,61 @@ export function WhoWeAre() {
 
                 </div>
 
-                {/* Stats Section */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-32">
+                {/* Companies Stack - Mobile */}
+                <div className="md:hidden flex flex-col gap-6 mb-16">
+                    {/* GrowX - Mobile */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="relative p-6 rounded-2xl bg-gradient-to-br from-[#0a0a0a] to-[#050505] border border-white/10"
+                    >
+                        <div className="flex justify-between items-start mb-6">
+                            <img src="/growx.png" alt="GrowX" className="h-16 object-contain" />
+                            <div className="px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-bold flex items-center gap-1">
+                                <MapPin className="w-3 h-3" /> İzmir
+                            </div>
+                        </div>
+
+                        <div className="mb-6">
+                            <div className="text-white font-bold mb-1">Dr. Savaş Tavşancı</div>
+                            <div className="text-xs text-gray-500 mb-3">Kurucu & Lider</div>
+                            <div className="text-sm text-white font-light italic border-l-2 border-purple-500 pl-3 py-1 bg-purple-500/5 rounded-r">
+                                "Şirketin 'Beyni ve İskeleti'"
+                            </div>
+                        </div>
+
+                        <div className="text-purple-500 text-sm font-bold tracking-wider">#BirlikteHepİleriye</div>
+                    </motion.div>
+
+                    {/* ÇPKA - Mobile */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="relative p-6 rounded-2xl bg-gradient-to-br from-[#0a0a0a] to-[#050505] border border-white/10"
+                    >
+                        <div className="flex justify-between items-start mb-6">
+                            <img src="/logo.png" alt="ÇokParaKazandıranAdam" className="h-16 object-contain" />
+                            <div className="px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-bold flex items-center gap-1">
+                                <MapPin className="w-3 h-3" /> İstanbul
+                            </div>
+                        </div>
+
+                        <div className="mb-6">
+                            <div className="text-white font-bold mb-1">Murat Tavşancı</div>
+                            <div className="text-xs text-gray-500 mb-3">Kurucu & Lider</div>
+                            <div className="text-sm text-white font-light italic border-l-2 border-purple-500 pl-3 py-1 bg-purple-500/5 rounded-r">
+                                "Şirketin 'Kasları ve Sesi'"
+                            </div>
+                        </div>
+
+                        <div className="text-purple-500 text-sm font-bold tracking-wider">#İçinizdenBiri</div>
+                    </motion.div>
+                </div>
+
+                {/* Stats Section - Desktop */}
+                <div className="hidden md:grid grid-cols-2 md:grid-cols-4 gap-6 mb-32">
                     {stats.map((stat, index) => (
                         <motion.div
                             key={index}
@@ -162,6 +215,25 @@ export function WhoWeAre() {
                             </div>
                             <div className="text-3xl md:text-4xl font-bold text-white mb-2">{stat.value}</div>
                             <div className="text-sm text-gray-400 uppercase tracking-wider">{stat.label}</div>
+                        </motion.div>
+                    ))}
+                </div>
+
+                {/* Stats Section - Mobile */}
+                <div className="md:hidden grid grid-cols-2 gap-3 mb-20">
+                    {stats.map((stat, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            className="p-4 rounded-xl bg-white/5 border border-white/10 text-center flex flex-col items-center justify-center"
+                        >
+                            <div className="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 mb-3">
+                                {stat.icon}
+                            </div>
+                            <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
+                            <div className="text-[10px] text-gray-400 uppercase tracking-wider leading-tight">{stat.label}</div>
                         </motion.div>
                     ))}
                 </div>
@@ -196,8 +268,8 @@ export function WhoWeAre() {
                     </div>
                 </div>
 
-                {/* Values Section */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32">
+                {/* Values Section - Desktop */}
+                <div className="hidden md:grid grid-cols-1 md:grid-cols-2 gap-8 mb-32">
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -225,6 +297,43 @@ export function WhoWeAre() {
                         <h3 className="text-2xl font-bold text-white mb-4">Sosyal Sorumluluk</h3>
                         <p className="text-gray-400 leading-relaxed">
                             100 üzerinde Üniversite konuşması ve GrowX Talks ile sosyal sorumluluk projelerine imza atıyor, geleceğe değer bırakıyoruz.
+                        </p>
+                    </motion.div>
+                </div>
+
+                {/* Values Section - Mobile */}
+                <div className="md:hidden flex flex-col gap-4 mb-20">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="p-6 rounded-2xl bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-500/20"
+                    >
+                        <div className="flex items-center gap-4 mb-4">
+                            <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center text-purple-500">
+                                <Leaf className="w-5 h-5" />
+                            </div>
+                            <h3 className="text-xl font-bold text-white">Sürdürülebilirlik</h3>
+                        </div>
+                        <p className="text-sm text-gray-400 leading-relaxed">
+                            Kendi raporunu yazan ve uygulayan sektör öncüsüyüz. Topluma kattığımız değere odaklanıyoruz.
+                        </p>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="p-6 rounded-2xl bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-500/20"
+                    >
+                        <div className="flex items-center gap-4 mb-4">
+                            <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center text-purple-500">
+                                <HeartHandshake className="w-5 h-5" />
+                            </div>
+                            <h3 className="text-xl font-bold text-white">Sosyal Sorumluluk</h3>
+                        </div>
+                        <p className="text-sm text-gray-400 leading-relaxed">
+                            Üniversite konuşmaları ve GrowX Talks ile sosyal sorumluluk projelerine imza atıyoruz.
                         </p>
                     </motion.div>
                 </div>

@@ -97,8 +97,8 @@ export function Consultancy() {
                     </motion.div>
                 </div>
 
-                {/* Features Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+                {/* Features Grid - Desktop */}
+                <div className="hidden md:grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
                     {features.map((feature, index) => (
                         <motion.div
                             key={index}
@@ -130,6 +130,37 @@ export function Consultancy() {
                     ))}
                 </div>
 
+                {/* Features Grid - Mobile */}
+                <div className="md:hidden flex flex-col gap-6 mb-16">
+                    {features.map((feature, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="p-6 rounded-2xl bg-white/5 border border-white/10"
+                        >
+                            <div className="flex items-center gap-3 mb-6">
+                                <div className="p-2 rounded-lg bg-purple-500/20 text-purple-400">
+                                    {feature.icon}
+                                </div>
+                                <h3 className="text-xl font-bold text-white">{feature.title}</h3>
+                            </div>
+
+                            <div className="space-y-6">
+                                {feature.items.map((item, idx) => (
+                                    <div key={idx} className="relative pl-4 border-l border-purple-500/30">
+                                        <h4 className="text-base font-bold text-white mb-1">{item.subtitle}</h4>
+                                        <p className="text-sm text-gray-400 leading-relaxed">
+                                            {item.desc}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+
                 {/* Consultant Staff Section */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -144,13 +175,13 @@ export function Consultancy() {
                     </p>
                 </motion.div>
 
-                {/* GROWX Section */}
+                {/* GROWX Section - Desktop */}
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="relative rounded-[3rem] bg-gradient-to-br from-[#0f0f0f] to-[#050505] border border-white/10 p-12 md:p-20 text-center overflow-hidden mt-20"
+                    className="hidden md:block relative rounded-[3rem] bg-gradient-to-br from-[#0f0f0f] to-[#050505] border border-white/10 p-12 md:p-20 text-center overflow-hidden mt-20"
                 >
                     <div className="absolute inset-0 bg-[url('/noise.png')] opacity-20" />
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-purple-500/5 to-transparent pointer-events-none" />
@@ -186,6 +217,32 @@ export function Consultancy() {
                                 <ArrowDown className="w-6 h-6" />
                             </motion.div>
                         </motion.div>
+                    </div>
+                </motion.div>
+
+                {/* GROWX Section - Mobile */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="md:hidden relative rounded-3xl bg-gradient-to-br from-[#0f0f0f] to-[#050505] border border-white/10 p-8 text-center mt-12 overflow-hidden"
+                >
+                    <div className="relative z-10 flex flex-col items-center">
+                        <span className="text-xs text-gray-500 uppercase tracking-widest mb-4">Grup Şirketimiz</span>
+
+                        <img
+                            src="/growx.png"
+                            alt="GrowX Logo"
+                            className="h-16 mb-6 object-contain"
+                        />
+
+                        <p className="text-sm text-gray-400 mb-6 leading-relaxed">
+                            Bu danışmanlık hizmetlerimiz, kurumsal yapılanma ve stratejik yönetim alanında uzmanlaşmış grup şirketimiz <strong className="text-white">GROWX</strong> güvencesiyle sunulmaktadır.
+                        </p>
+
+                        <div className="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400">
+                            <ArrowDown className="w-5 h-5" />
+                        </div>
                     </div>
                 </motion.div>
 

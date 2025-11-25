@@ -124,8 +124,8 @@ export function Needs() {
                     </motion.p>
                 </div>
 
-                {/* Minimal Cards Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 border border-white/10 rounded-3xl overflow-hidden mb-16">
+                {/* Desktop Grid (Hidden on Mobile) */}
+                <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 border border-white/10 rounded-3xl overflow-hidden mb-16">
                     {problems.map((item, index) => (
                         <motion.div
                             key={index}
@@ -148,6 +148,34 @@ export function Needs() {
                                 <p className="text-sm text-gray-500 leading-relaxed group-hover:text-gray-400 transition-colors duration-300 font-light">
                                     {item.desc}
                                 </p>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+
+                {/* Mobile Stack (Visible only on Mobile) */}
+                <div className="md:hidden flex flex-col gap-4 mb-16">
+                    {problems.map((item, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, x: -10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.05 }}
+                            className="relative p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md"
+                        >
+                            <div className="flex items-start gap-4">
+                                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400">
+                                    {item.icon}
+                                </div>
+                                <div>
+                                    <h3 className="text-lg font-bold text-white mb-2">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-sm text-gray-400 leading-relaxed font-light">
+                                        {item.desc}
+                                    </p>
+                                </div>
                             </div>
                         </motion.div>
                     ))}

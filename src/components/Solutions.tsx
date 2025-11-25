@@ -178,8 +178,8 @@ export function Solutions() {
                     </motion.div>
                 </div>
 
-                {/* 1. Methodology (Process) */}
-                <div className="mb-24">
+                {/* 1. Methodology (Process) - Desktop */}
+                <div className="hidden md:block mb-24">
                     <h3 className="text-xl font-medium text-white mb-8 flex items-center gap-3">
                         <span className="flex items-center justify-center w-6 h-6 rounded-full bg-white/10 text-xs text-gray-300">01</span>
                         Çalışma Metodolojimiz
@@ -205,8 +205,35 @@ export function Solutions() {
                     </div>
                 </div>
 
-                {/* 2. Service Models */}
-                <div className="mb-24">
+                {/* 1. Methodology (Process) - Mobile */}
+                <div className="md:hidden mb-16">
+                    <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-3">
+                        <span className="flex items-center justify-center w-6 h-6 rounded-full bg-purple-500/20 text-xs text-purple-400">01</span>
+                        Çalışma Metodolojimiz
+                    </h3>
+                    <div className="flex flex-col gap-4">
+                        {methodology.map((step, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, x: -10 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                className="p-5 rounded-2xl bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-500/20"
+                            >
+                                <div className="flex items-center gap-3 mb-3">
+                                    <div className="p-2 rounded-lg bg-purple-500/20 text-purple-400">
+                                        {step.icon}
+                                    </div>
+                                    <h4 className="text-lg font-bold text-white">{step.title}</h4>
+                                </div>
+                                <p className="text-sm text-gray-400 leading-relaxed">{step.desc}</p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* 2. Service Models - Desktop */}
+                <div className="hidden md:block mb-24">
                     <h3 className="text-xl font-medium text-white mb-8 flex items-center gap-3">
                         <span className="flex items-center justify-center w-6 h-6 rounded-full bg-white/10 text-xs text-gray-300">02</span>
                         Hizmet Modellerimiz
@@ -234,8 +261,35 @@ export function Solutions() {
                     </div>
                 </div>
 
-                {/* 3. Featured Programs */}
-                <div className="mb-24">
+                {/* 2. Service Models - Mobile */}
+                <div className="md:hidden mb-16">
+                    <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-3">
+                        <span className="flex items-center justify-center w-6 h-6 rounded-full bg-purple-500/20 text-xs text-purple-400">02</span>
+                        Hizmet Modellerimiz
+                    </h3>
+                    <div className="flex flex-col gap-4">
+                        {services.map((service, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, x: -10 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                className="p-5 rounded-2xl bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-500/20"
+                            >
+                                <div className="flex items-center gap-3 mb-3">
+                                    <div className="p-2 rounded-lg bg-purple-500/20 text-purple-400">
+                                        {service.icon}
+                                    </div>
+                                    <h4 className="text-lg font-bold text-white">{service.title}</h4>
+                                </div>
+                                <p className="text-sm text-gray-400 leading-relaxed">{service.desc}</p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* 3. Featured Programs - Desktop */}
+                <div className="hidden md:block mb-24">
                     <h3 className="text-xl font-medium text-white mb-8 flex items-center gap-3">
                         <span className="flex items-center justify-center w-6 h-6 rounded-full bg-white/10 text-xs text-gray-300">03</span>
                         Öne Çıkan Gelişim & Eğitim Programlarımız
@@ -261,7 +315,34 @@ export function Solutions() {
                     </div>
                 </div>
 
-                {/* CTA Section - Compact */}
+                {/* 3. Featured Programs - Mobile */}
+                <div className="md:hidden mb-16">
+                    <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-3">
+                        <span className="flex items-center justify-center w-6 h-6 rounded-full bg-purple-500/20 text-xs text-purple-400">03</span>
+                        Öne Çıkan Programlar
+                    </h3>
+                    <div className="flex flex-col gap-4">
+                        {programs.map((program, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, x: -10 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                className="p-5 rounded-2xl bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-500/20"
+                            >
+                                <div className="flex items-center gap-3 mb-3">
+                                    <div className="p-2 rounded-lg bg-purple-500/20 text-purple-400">
+                                        {program.icon}
+                                    </div>
+                                    <h4 className="text-lg font-bold text-white">{program.title}</h4>
+                                </div>
+                                <p className="text-sm text-gray-400 leading-relaxed">{program.desc}</p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* CTA Section */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}

@@ -92,8 +92,8 @@ export function About() {
                     <div className="h-1 w-24 bg-purple-500 rounded-full" />
                 </motion.div>
 
-                {/* Bento Grid Layout */}
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 mb-16">
+                {/* Desktop Layout (Hidden on Mobile) */}
+                <div className="hidden md:grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 mb-16">
 
                     {/* Card 1: The Strategist */}
                     <motion.div
@@ -158,8 +158,70 @@ export function About() {
                     </motion.div>
                 </div>
 
-                {/* Infinite Ticker Stats */}
-                <div className="relative w-full overflow-hidden py-8">
+                {/* Mobile Layout (Visible only on Mobile) */}
+                <div className="md:hidden flex flex-col gap-6 mb-16">
+
+                    {/* Mobile Card 1 */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="relative p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md overflow-hidden"
+                    >
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl -mr-10 -mt-10" />
+                        <div className="relative z-10">
+                            <div className="flex items-center gap-4 mb-4">
+                                <div className="p-2 rounded-lg bg-purple-500/20 text-purple-400">
+                                    <Target className="w-6 h-6" />
+                                </div>
+                                <h3 className="text-xl font-bold text-white">Stratejist & Lider</h3>
+                            </div>
+                            <p className="text-gray-400 text-sm leading-relaxed">
+                                Satış yönetimi ve liderlik alanındaki <span className="text-white font-semibold">20 yıllık tecrübesini</span>, global iş ağıyla birleştiren bir stratejisttir. Türkiye’nin öncü kurumlarında edindiği birikimi; konuşmacı, yazar ve danışman kimliğiyle iş dünyasına aktarmaktadır.
+                            </p>
+                        </div>
+                    </motion.div>
+
+                    {/* Mobile Card 2 (Motto) */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="relative p-6 rounded-2xl bg-gradient-to-br from-purple-900/40 to-black border border-purple-500/30 overflow-hidden"
+                    >
+                        <div className="absolute top-0 right-0 p-3">
+                            <span className="text-xs font-bold text-purple-300 tracking-widest uppercase bg-purple-500/20 px-2 py-1 rounded-md border border-purple-500/30">Motto</span>
+                        </div>
+                        <h3 className="text-2xl font-black text-white mb-3 mt-2">#İçinizdenbiri</h3>
+                        <p className="text-gray-300 text-sm leading-relaxed">
+                            Girişimcilere, satış profesyonellerine ve her kademeden yöneticiye rehberlik ederek, paydaşlarının <span className="text-purple-400 font-semibold">finansal ve operasyonel başarılarını</span> maksimize etmeyi hedefler.
+                        </p>
+                    </motion.div>
+
+                    {/* Mobile Card 3 */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                        className="relative p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md"
+                    >
+                        <div className="flex items-center gap-4 mb-4">
+                            <div className="p-2 rounded-lg bg-white/10 text-white">
+                                <TrendingUp className="w-6 h-6" />
+                            </div>
+                            <h3 className="text-xl font-bold text-white">Kurumsal Liderlik</h3>
+                        </div>
+                        <p className="text-gray-400 text-sm leading-relaxed">
+                            Kurucusu olduğu ÇokParaKazandıranAdam Danışmanlık ve Akademi bünyesinde şirketlerin <span className="text-purple-300 font-semibold">"sürdürülebilir satış ve gelir"</span> arttırmalarına, üst yöneticiler/iş profesyonellerinin de <span className="text-purple-300 font-semibold">"sürdürülebilir liderlik" & "yeni nesil satış"</span> kaslarının gelişimlerine liderlik etmektedir.
+                        </p>
+                    </motion.div>
+
+                </div>
+
+                {/* Desktop Ticker (Hidden on Mobile) */}
+                <div className="hidden md:block relative w-full overflow-hidden py-8">
                     {/* Blur Effects */}
                     <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#050505] to-transparent z-20 pointer-events-none" />
                     <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#050505] to-transparent z-20 pointer-events-none" />
@@ -169,6 +231,27 @@ export function About() {
                         <TickerRow items={row2} direction="left" speed={135} />
                         <TickerRow items={row3} direction="right" speed={125} />
                     </div>
+                </div>
+
+                {/* Mobile Stats Grid (Visible only on Mobile) */}
+                <div className="md:hidden grid grid-cols-2 gap-3">
+                    {stats.map((stat, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.05 }}
+                            className="p-4 rounded-xl bg-white/5 border border-white/10 flex flex-col items-center text-center gap-3"
+                        >
+                            <div className="p-2 rounded-full bg-purple-500/10 text-purple-400">
+                                {stat.icon}
+                            </div>
+                            <span className="text-xs font-bold text-gray-300 leading-tight">
+                                {stat.text}
+                            </span>
+                        </motion.div>
+                    ))}
                 </div>
 
             </div>

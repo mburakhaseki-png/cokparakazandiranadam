@@ -55,23 +55,39 @@ export function Navbar() {
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="absolute top-full left-0 right-0 bg-black/95 backdrop-blur-xl border-b border-white/10 overflow-hidden md:hidden shadow-2xl"
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                        className="fixed inset-0 z-40 bg-gradient-to-b from-black via-purple-950 to-black md:hidden flex flex-col items-center justify-center"
                     >
-                        <div className="flex flex-col p-6 space-y-4">
-                            {links.map((link) => (
-                                <a
+                        <div className="absolute top-6 right-6">
+                            <button
+                                className="text-white/50 hover:text-white transition-colors p-2"
+                                onClick={() => setIsOpen(false)}
+                            >
+                                <X className="w-8 h-8" />
+                            </button>
+                        </div>
+
+                        <div className="flex flex-col items-center space-y-8 p-6">
+                            {links.map((link, index) => (
+                                <motion.a
                                     key={link.name}
                                     href={link.href}
-                                    className="text-lg font-medium text-gray-300 hover:text-purple-400 transition-colors"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.1 + index * 0.05, duration: 0.5 }}
+                                    className="text-3xl font-bold text-white/80 hover:text-white hover:scale-110 transition-all tracking-tight"
                                     onClick={() => setIsOpen(false)}
                                 >
                                     {link.name}
-                                </a>
+                                </motion.a>
                             ))}
+                        </div>
+
+                        <div className="absolute bottom-12 text-white/20 text-sm tracking-widest uppercase">
+                            ÇokParaKazandıranAdam
                         </div>
                     </motion.div>
                 )}

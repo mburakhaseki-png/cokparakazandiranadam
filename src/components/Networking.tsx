@@ -24,8 +24,8 @@ export function Networking() {
     return (
         <section id="networking" className="relative min-h-screen py-20 bg-[#050505] overflow-hidden flex items-center">
 
-            {/* 1. Dynamic Background Layer */}
-            <div className="absolute inset-0 z-0">
+            {/* 1. Dynamic Background Layer - Desktop */}
+            <div className="hidden md:block absolute inset-0 z-0">
                 {/* Main Image - Positioned to show the person on the left */}
                 <img
                     src="/back2.png"
@@ -40,8 +40,14 @@ export function Networking() {
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(168,85,247,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.03)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_at_right,black_60%,transparent_100%)] pointer-events-none" />
             </div>
 
-            {/* 2. Content Container */}
-            <div className="container mx-auto px-6 md:px-12 relative z-20">
+            {/* 1. Dynamic Background Layer - Mobile */}
+            <div className="md:hidden absolute inset-0 z-0 bg-[#050505]">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-[#050505] to-[#050505]" />
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(168,85,247,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.05)_1px,transparent_1px)] bg-[size:20px_20px] [mask-image:radial-gradient(ellipse_at_center,black_70%,transparent_100%)] pointer-events-none" />
+            </div>
+
+            {/* 2. Content Container - Desktop */}
+            <div className="hidden md:block container mx-auto px-6 md:px-12 relative z-20">
                 <div className="flex flex-col items-end text-right ml-auto max-w-[900px]">
 
                     {/* Header Section */}
@@ -159,6 +165,74 @@ export function Networking() {
                             <span className="text-purple-400 font-bold not-italic">Networkümüz En Büyük Gücümüz."</span>
                         </p>
                     </motion.div>
+
+                </div>
+            </div>
+
+            {/* 2. Content Container - Mobile */}
+            <div className="md:hidden container mx-auto px-6 relative z-20">
+                <div className="flex flex-col items-center text-center">
+
+                    {/* Header Section */}
+                    <div className="mb-10">
+                        <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-bold uppercase">
+                            B2B Networking
+                        </div>
+
+                        <h2 className="text-4xl font-black text-white mb-4 leading-tight">
+                            Güvenilir <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-500">
+                                Ticari Aracılık
+                            </span>
+                        </h2>
+
+                        <p className="text-gray-400 text-sm leading-relaxed">
+                            Sürdürülebilir Satış ve Gelir arttırmada <span className="text-purple-300 font-medium">“kalıcı başarının formülü”</span> sadece <span className="text-purple-300 font-medium">"ne bildiğiniz"</span> değil, aynı zamanda <span className="text-purple-300 font-medium">"kimi tanıdığınızdır"</span>. Biz, ilişki sermayemizi sizin <span className="text-purple-300 font-medium">“işinizin büyümesi”</span> için katalizör olarak kullanıyoruz.
+                        </p>
+                    </div>
+
+                    {/* Stats Grid */}
+                    <div className="grid grid-cols-1 gap-3 w-full mb-8">
+                        {stats.map((stat, index) => (
+                            <div key={index} className="p-4 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between">
+                                <div className="text-left">
+                                    <div className="text-2xl font-bold text-white">{stat.value}</div>
+                                    <div className="text-xs text-gray-500 uppercase">{stat.label}</div>
+                                </div>
+                                <div className="p-2 rounded-lg bg-purple-500/10 text-purple-400">
+                                    {stat.icon}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* "Size Ne Sağlar?" Card */}
+                    <div className="w-full p-6 rounded-2xl bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-500/20 text-left mb-8">
+                        <div className="flex items-center gap-3 mb-4">
+                            <div className="p-2 rounded-lg bg-purple-500/20 text-purple-400">
+                                <Network className="w-6 h-6" />
+                            </div>
+                            <h4 className="text-lg font-bold text-white">Size Ne Sağlar?</h4>
+                        </div>
+                        <p className="text-sm text-gray-300 leading-relaxed mb-4">
+                            Bu güçlü <span className="text-purple-300 font-semibold">“Network BAĞımız”</span> sayesinde; ulaşmakta zorlandığınız kurumlara, tanışmak istediğiniz kilit iş insanları ve üst yöneticilere ulaştırıyor, girmek istediğiniz yeni pazarlara sizin için köprü oluyor.
+                        </p>
+                        <p className="text-sm text-gray-300 leading-relaxed mb-4">
+                            Doğru müzakere masasında tarafları buluşturarak iş geliştirme ve satış sürecini kolaylaştırıp ve de hızlandırıyoruz.
+                        </p>
+                        <div className="text-xs text-gray-500">
+                            <span className="w-1.5 h-1.5 rounded-full bg-purple-500 inline-block mr-2" />
+                            35 resmi stratejik iş ortağımız ile <span className="text-purple-300 font-medium">“güvenilir ticari aracılık“</span>
+                        </div>
+                    </div>
+
+                    {/* Footer Quote */}
+                    <div className="relative py-4 px-6 border-l-2 border-purple-500 bg-gradient-to-r from-purple-900/10 to-transparent rounded-r-xl text-left">
+                        <p className="text-lg text-white italic leading-relaxed">
+                            "Satış & Liderlik Bizim Tek İşimiz, <br />
+                            <span className="text-purple-400 font-bold not-italic">Networkümüz En Büyük Gücümüz."</span>
+                        </p>
+                    </div>
 
                 </div>
             </div>

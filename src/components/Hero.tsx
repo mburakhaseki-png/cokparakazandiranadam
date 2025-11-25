@@ -15,8 +15,8 @@ export function Hero() {
                 <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent" />
             </div>
 
-            {/* Main Content Container */}
-            <div className="relative z-10 container mx-auto px-6 md:px-12 flex flex-col items-start text-left">
+            {/* Desktop Layout (Hidden on Mobile) */}
+            <div className="hidden md:flex relative z-10 container mx-auto px-6 md:px-12 flex-col items-start text-left">
 
                 {/* Main Title */}
                 <div className="relative mb-8">
@@ -69,6 +69,65 @@ export function Hero() {
                         <div className="absolute inset-0 bg-purple-400 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
                     </a>
                 </motion.div>
+            </div>
+
+            {/* Mobile Layout (Visible only on Mobile) */}
+            <div className="md:hidden relative z-10 container mx-auto px-6 flex flex-col items-center justify-center text-center h-full pt-20">
+
+                {/* Mobile Background Gradient */}
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/40 via-[#050505] to-[#050505] z-[-1]" />
+
+                {/* Mobile Title */}
+                <motion.h1
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className="text-6xl font-black tracking-tighter text-white leading-[0.9] mb-6"
+                >
+                    MURAT
+                    <br />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-b from-purple-400 to-purple-900">
+                        TAVŞANCI
+                    </span>
+                </motion.h1>
+
+                {/* Mobile Subtitle */}
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3, duration: 0.8 }}
+                    className="mb-8 relative"
+                >
+                    <div className="absolute inset-0 bg-purple-500/30 blur-3xl" />
+                    <h2 className="relative text-xl font-bold text-purple-200 tracking-widest">
+                        ÇokParaKazandıranAdam
+                    </h2>
+                </motion.div>
+
+                {/* Mobile Motto */}
+                <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.5, duration: 0.8 }}
+                    className="mb-10 text-gray-300 text-lg font-light italic leading-relaxed px-4"
+                >
+                    "Satış ve liderlikte <br /> <span className="text-purple-400 font-bold not-italic">KALICI BAŞARI</span> <br /> için buradayız."
+                </motion.p>
+
+                {/* Mobile CTA */}
+                <motion.a
+                    href="#contact"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.7, duration: 0.8 }}
+                    className="group relative w-full max-w-xs px-8 py-5 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold rounded-2xl overflow-hidden shadow-lg shadow-purple-900/30"
+                >
+                    <span className="relative z-10 flex items-center justify-center gap-2 text-lg">
+                        Hemen Başla <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                    <div className="absolute inset-0 bg-white/20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                </motion.a>
+
             </div>
         </section>
     );
