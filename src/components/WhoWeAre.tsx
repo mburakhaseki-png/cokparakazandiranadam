@@ -250,7 +250,7 @@ export function WhoWeAre() {
                         <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-[#050505] to-transparent z-10" />
                         <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-[#050505] to-transparent z-10" />
 
-                        {/* Desktop Ticker (Slower) */}
+                        {/* Desktop Ticker (Unchanged) */}
                         <motion.div
                             className="hidden md:flex gap-16 whitespace-nowrap"
                             animate={{ x: "-50%" }}
@@ -267,22 +267,23 @@ export function WhoWeAre() {
                             ))}
                         </motion.div>
 
-                        {/* Mobile Ticker (Faster) */}
-                        <motion.div
-                            className="flex md:hidden gap-8 whitespace-nowrap"
-                            animate={{ x: "-50%" }}
-                            transition={{
-                                duration: 15,
-                                repeat: Infinity,
-                                ease: "linear"
-                            }}
-                        >
-                            {[...references, ...references].map((ref, index) => (
-                                <span key={index} className="text-2xl font-bold text-gray-500 hover:text-white transition-colors cursor-default">
-                                    {ref}
-                                </span>
+                        {/* Mobile Grid Layout (Modern Cards) */}
+                        <div className="md:hidden grid grid-cols-2 gap-3 px-4">
+                            {references.map((ref, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.05 }}
+                                    className="p-4 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-center hover:bg-purple-500/10 hover:border-purple-500/30 transition-all duration-300"
+                                >
+                                    <span className="text-sm font-bold text-gray-300">
+                                        {ref}
+                                    </span>
+                                </motion.div>
                             ))}
-                        </motion.div>
+                        </div>
                     </div>
                 </div>
 

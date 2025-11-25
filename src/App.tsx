@@ -1,29 +1,38 @@
-import { Hero } from './components/Hero';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import { Navbar } from './components/Navbar';
-import { About } from './components/About';
-import { Needs } from './components/Needs';
-import { Solutions } from './components/Solutions';
-import { Networking } from './components/Networking';
-import { Consultancy } from './components/Consultancy';
-import { WhoWeAre } from './components/WhoWeAre';
-import { Contact } from './components/Contact';
+import { Footer } from './components/Footer';
+import { Home } from './pages/Home';
+import { KVKK } from './pages/KVKK';
+import { CookiePolicy } from './pages/CookiePolicy';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
   return (
-    <main className="bg-[#050505] min-h-screen text-white selection:bg-purple-500 selection:text-white">
-      <div className="bg-noise" />
-      <div className="h-screen flex flex-col">
+    <Router>
+      <ScrollToTop />
+      <main className="bg-[#050505] min-h-screen text-white selection:bg-purple-500 selection:text-white flex flex-col">
+        <div className="bg-noise" />
         <Navbar />
-        <Hero />
-      </div>
-      <About />
-      <Needs />
-      <Solutions />
-      <Networking />
-      <Consultancy />
-      <WhoWeAre />
-      <Contact />
-    </main>
+        <div className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/kvkk" element={<KVKK />} />
+            <Route path="/cookie-policy" element={<CookiePolicy />} />
+          </Routes>
+        </div>
+        <Footer />
+      </main>
+    </Router>
   );
 }
 
