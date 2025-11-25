@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Target, TrendingUp, Award, Zap, BookOpen, Users, Mic } from 'lucide-react';
+import { Target, TrendingUp, Award, Zap, BookOpen, Users, Mic, Radio, UserCheck, Briefcase } from 'lucide-react';
 
 export function About() {
     const cardVariants = {
@@ -16,15 +16,59 @@ export function About() {
     };
 
     const stats = [
-        { text: "5.000+ SAAT EĞİTİM", icon: <BookOpen className="w-5 h-5" /> },
-        { text: "20 YIL SATIŞ YÖNETİMİ", icon: <TrendingUp className="w-5 h-5" /> },
-        { text: "10.000+ MÜŞTERİ (81 İL)", icon: <Users className="w-5 h-5" /> },
-        { text: "102 KEYNOTE KONUŞMA", icon: <Mic className="w-5 h-5" /> },
+        { text: "10.000+ SAAT EĞİTİM VERME", icon: <BookOpen className="w-5 h-5" /> },
+        { text: "20 YIL SATIŞ ve EKİP YÖNETİMİ", icon: <TrendingUp className="w-5 h-5" /> },
+        { text: "10.000+ MÜŞTERİ (81 İL, 42 ÜLKE)", icon: <Users className="w-5 h-5" /> },
+        { text: "200 KEYNOTE KONUŞMA", icon: <Mic className="w-5 h-5" /> },
         { text: "100+ KÖŞE YAZISI", icon: <Target className="w-5 h-5" /> },
         { text: "4 MBA DERECESİ", icon: <Award className="w-5 h-5" /> },
         { text: "TURKCELL 10 YIL EN İYİ YÖNETİCİ", icon: <Award className="w-5 h-5" /> },
-        { text: "YÜKSEK ENERJİ", icon: <Zap className="w-5 h-5" /> },
+        { text: "10+ PODCAST & RADYO PROGRAMI", icon: <Radio className="w-5 h-5" /> },
+        { text: "100+ YÖNETİCİ YETİŞTİRME", icon: <UserCheck className="w-5 h-5" /> },
+        { text: "ONLARCA ÜST YÖNETİCİ MENTORLUĞU", icon: <UserCheck className="w-5 h-5" /> },
+        { text: "23 SEKTÖR DENEYİMİ", icon: <Briefcase className="w-5 h-5" /> },
+        { text: "YÜKSEK ENERJİ ve İŞİMİZE TUTKUMUZ", icon: <Zap className="w-5 h-5" /> },
     ];
+
+    // Split stats into 3 rows
+    const row1 = stats.slice(0, 4);
+    const row2 = stats.slice(4, 8);
+    const row3 = stats.slice(8, 12);
+
+    const TickerRow = ({ items, direction, speed }: { items: typeof stats, direction: 'left' | 'right', speed: number }) => {
+        return (
+            <div className="flex overflow-hidden relative w-full">
+                <motion.div
+                    initial={{ x: direction === 'left' ? 0 : "-50%" }}
+                    animate={{ x: direction === 'left' ? "-50%" : 0 }}
+                    transition={{
+                        duration: speed,
+                        ease: "linear",
+                        repeat: Infinity,
+                    }}
+                    className="flex gap-4 flex-nowrap"
+                >
+                    {/* Duplicate items multiple times to ensure seamless loop */}
+                    {[...items, ...items, ...items, ...items, ...items, ...items].map((stat, index) => (
+                        <div
+                            key={index}
+                            className="flex-shrink-0 group relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 p-4 hover:border-purple-500/50 transition-colors duration-300 w-[450px]"
+                        >
+                            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            <div className="relative z-10 flex items-center justify-center space-x-4">
+                                <div className="p-2 rounded-full bg-purple-500/20 text-purple-300 group-hover:scale-110 transition-transform duration-300">
+                                    {stat.icon}
+                                </div>
+                                <span className="text-sm font-bold text-white tracking-wide whitespace-nowrap">
+                                    {stat.text}
+                                </span>
+                            </div>
+                        </div>
+                    ))}
+                </motion.div>
+            </div>
+        );
+    };
 
     return (
         <section id="about" className="relative min-h-screen py-24 bg-[#050505] overflow-hidden">
@@ -108,35 +152,23 @@ export function About() {
                         <div>
                             <h3 className="text-2xl font-bold text-white mb-4">Kurumsal Liderlik</h3>
                             <p className="text-lg text-gray-400 leading-relaxed max-w-4xl">
-                                Kurucusu olduğu <span className="text-white font-semibold">ÇokParaKazandıranAdam Danışmanlık</span> ve Partner/İstişare Kurulu Üyesi olduğu <span className="text-white font-semibold">GrowX Yönetim Danışmanlığı</span> çatısı altında; şirketlerin kurumsallaşma süreçlerine ve sürdürülebilir büyümelerine liderlik etmektedir.
+                                Kurucusu olduğu ÇokParaKazandıranAdam Danışmanlık ve Akademi bünyesinde şirketlerin <span className="text-purple-300 font-semibold">"sürdürülebilir satış ve gelir"</span> arttırmalarına, üst yöneticiler/iş profesyonellerinin de <span className="text-purple-300 font-semibold">"sürdürülebilir liderlik" & "yeni nesil satış"</span> kaslarının gelişimlerine liderlik etmektedir.
                             </p>
                         </div>
                     </motion.div>
                 </div>
 
-                {/* Stats Module */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    {stats.map((stat, index) => (
-                        <motion.div
-                            key={index}
-                            custom={index + 3}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, margin: "-50px" }}
-                            variants={cardVariants}
-                            className="group relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 p-6 hover:border-purple-500/50 transition-colors duration-300"
-                        >
-                            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                            <div className="relative z-10 flex flex-col items-center text-center space-y-3">
-                                <div className="p-3 rounded-full bg-purple-500/20 text-purple-300 group-hover:scale-110 transition-transform duration-300">
-                                    {stat.icon}
-                                </div>
-                                <span className="text-sm md:text-base font-bold text-white tracking-wide">
-                                    {stat.text}
-                                </span>
-                            </div>
-                        </motion.div>
-                    ))}
+                {/* Infinite Ticker Stats */}
+                <div className="relative w-full overflow-hidden py-8">
+                    {/* Blur Effects */}
+                    <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#050505] to-transparent z-20 pointer-events-none" />
+                    <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#050505] to-transparent z-20 pointer-events-none" />
+
+                    <div className="flex flex-col gap-6">
+                        <TickerRow items={row1} direction="right" speed={120} />
+                        <TickerRow items={row2} direction="left" speed={135} />
+                        <TickerRow items={row3} direction="right" speed={125} />
+                    </div>
                 </div>
 
             </div>

@@ -40,8 +40,8 @@ export function Hero() {
                     className="mb-8 relative"
                 >
                     <div className="absolute inset-0 bg-purple-500/20 blur-2xl rounded-full" />
-                    <h2 className="relative text-2xl md:text-4xl font-bold text-purple-300 tracking-wide uppercase">
-                        "Çok Para Kazandıran Adam"
+                    <h2 className="relative text-2xl md:text-4xl font-bold text-purple-300 tracking-wide">
+                        ÇokParaKazandıranAdam
                     </h2>
                 </motion.div>
 
@@ -52,7 +52,7 @@ export function Hero() {
                     transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
                     className="mb-12 max-w-3xl text-white/90 text-lg md:text-xl font-light italic leading-relaxed"
                 >
-                    "Satış ve liderlikte kalıcı başarı; ancak beden, ruh ve herşeyini yılmadan ortaya koyarsan ve hedef kitleni mutlu edersen gelir."
+                    "Satış ve liderlikte <span className="text-purple-300 underline uppercase font-bold">kalıcı başarı</span>; ancak beden, ruh ve herşeyini disiplin ve yüksek enerji ile yılmadan ortaya koyarsan ve tüm paydaşlarını mutlu edersen gelir."
                 </motion.p>
 
                 {/* CTA Buttons */}

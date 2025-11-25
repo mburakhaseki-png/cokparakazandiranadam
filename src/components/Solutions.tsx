@@ -17,17 +17,21 @@ export function Solutions() {
     const methodology = [
         {
             title: "Saha Ziyareti & Analiz",
-            desc: "Önce ekiple sahaya iniyor, gerçek ihtiyaçları yerinde tespit ediyoruz.",
+            desc: "Önce ekiple sahaya & üretim hattına & işin mutfağına iniyor, gerçek ihtiyaçları yerinde tespit ediyoruz.",
             icon: <Search className="w-5 h-5" />
         },
         {
-            title: "Teşhis",
-            desc: "Bir 'Satış Doktoru' gibi kurumunuza özel teşhisi koyuyoruz.",
+            title: "Teşhis & Reçete",
+            desc: <>
+                Bir <span className="text-purple-300">"Satış & Yönetim & İletişim Doktoru"</span> gibi kurumunuza özel teşhisi koyup reçeteyi beraberce yazıyoruz.
+            </>,
             icon: <Stethoscope className="w-5 h-5" />
         },
         {
             title: "Entegrasyon",
-            desc: "Kurumunuza ve ihtiyacınıza özel projeler üreterek 'içinizden biri' gibi çalışıyoruz.",
+            desc: <>
+                Kurumunuza ve ihtiyacınıza özel farklı, yenilikçi ve inovatif projeler üreterek <span className="text-purple-300">#içinizdenbiri</span> gibi çalışıyoruz.
+            </>,
             icon: <Puzzle className="w-5 h-5" />
         }
     ];
@@ -35,22 +39,24 @@ export function Solutions() {
     const services = [
         {
             title: "Mentorluk",
-            desc: "Satış yöneticileri ve liderlere birebir, özel gelişim seansları.",
+            desc: "Satış yöneticileri, girişimciler, üst yöneticiler ve profesyonel her birimden liderlere kişiye özel gelişim seansları.",
             icon: <UserCheck className="w-6 h-6" />
         },
         {
             title: "Danışmanlık",
-            desc: "Kuruma özgü satış sistemlerinin ve süreçlerinin sıfırdan tasarımı.",
+            desc: "Kuruma özgü satış strateji, sistemleri ve süreçlerinin sıfırdan tasarımı ya da yeniden re-organizasyonu.",
             icon: <Briefcase className="w-6 h-6" />
         },
         {
             title: "Eğitim",
-            desc: "Saha ekipleri ve yöneticiler için özel sınıf içi veya online eğitimler.",
+            desc: "Saha ekipleri & yöneticiler & merkez kadrolar için özel tasarlanmış sınıf içi /online eğitimler & uzun soluklu Mini MBA programları.",
             icon: <GraduationCap className="w-6 h-6" />
         },
         {
             title: "Konuşmacılık",
-            desc: "Zirve ve kamplarda motivasyon ve vizyon odaklı sahne konuşmaları.",
+            desc: <>
+                Zirve, kongre ve kamplarda, bayi toplantılarında motivasyon ve vizyon odaklı sahne konuşmaları <span className="text-purple-300">#keynotespeaker</span>
+            </>,
             icon: <Mic className="w-6 h-6" />
         }
     ];
@@ -58,18 +64,45 @@ export function Solutions() {
     const programs = [
         {
             title: "İç'ten Lider",
-            desc: "Kitleleri peşinden sürükleyen ve paydaşlarına sürekli kazandıran liderlik yetkinlikleri.",
+            desc: <>
+                Kitleleri peşinden sürükleyen ve paydaşlarına sürekli kazandıran <span className="text-purple-300">"kişiye özgü liderlik"</span> yetkinlikleri.
+            </>,
             icon: <Crown className="w-5 h-5" />
         },
         {
-            title: "Mutlu Eden Satıcı",
-            desc: "Müşterisini mutlu ederek sürdürülebilir kazanç sağlayan satışçı profili.",
+            title: "Mutlu Müşteri",
+            desc: <>
+                Müşterisini mutlu ederek <span className="text-purple-300">"sürdürülebilir kazanç"</span> sağlayan <span className="text-purple-300">"yeni nesil satıcı"</span> profili yaratma.
+            </>,
             icon: <Smile className="w-5 h-5" />
         },
         {
             title: "Sahada Kazan",
-            desc: "Teoride değil, iş başında gelişim sağlayan 'beraber satış ziyareti' programı.",
+            desc: <>
+                Teoride değil, iş başında gelişim sağlayan <span className="text-purple-300">"beraber saha ziyareti ve koçluğu"</span> programı.
+            </>,
             icon: <Trophy className="w-5 h-5" />
+        },
+        {
+            title: "Sihirli İletişim & Kazanan Takım",
+            desc: <>
+                Birimler arası çatışmaları azaltan, kazan&kazan felsefesi ile <span className="text-purple-300">"Duygusal Zeka (EQ) kullanma"</span> yetkinlikleri.
+            </>,
+            icon: <Puzzle className="w-5 h-5" />
+        },
+        {
+            title: "Liderlik & Satış Okulu",
+            desc: <>
+                Uzun soluklu, farklı disiplinlerden eğitim serisi, sınav, vaka, kep töreni ile <span className="text-purple-300">"Mini MBA"</span> programları.
+            </>,
+            icon: <GraduationCap className="w-5 h-5" />
+        },
+        {
+            title: "Satış Arenası",
+            desc: <>
+                Hem profesyonel konuşmacılar, hem de başarılı ekipleriniz panelde <span className="text-purple-300">"Birbirinden Öğreniyor"</span> sohbetleri.
+            </>,
+            icon: <Mic className="w-5 h-5" />
         }
     ];
 
@@ -126,15 +159,23 @@ export function Solutions() {
                         <span className="font-bold text-white">Yardımcı Oluyoruz?</span>
                     </motion.h2>
 
-                    <motion.p
+                    <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.4 }}
-                        className="text-lg text-gray-400 max-w-2xl leading-relaxed font-light"
+                        className="space-y-4 text-lg text-gray-400 max-w-3xl leading-relaxed font-light"
                     >
-                        Ezbere eğitimler değil, <span className="text-white font-medium">"Satış Doktoru"</span> titizliğiyle teşhis koyup, terzi usulü çözümler üretiyoruz.
-                    </motion.p>
+                        <p>
+                            1- Ezbere hizmetler değil, <span className="text-purple-300">"Satış & Yönetim & İletişim Doktoru"</span> titizliğiyle teşhis koyup, ihtiyaçlarınıza özel terzi usulü çözümler üretiyoruz.
+                        </p>
+                        <p>
+                            2- <span className="text-purple-300">"Mutlu Müşteri"</span> ve <span className="text-purple-300">"İçten Lider"</span> ve <span className="text-purple-300">"Sihirli İletişim"</span> gibi kendi yerli geliştirdiğimiz modellerimizi uyguluyoruz.
+                        </p>
+                        <p>
+                            3- Sadece yıllarca uygulamaya devam ettiğimiz, <span className="text-purple-300">"sonuca dönmüş ve pratik deneyimleri"</span> işinize uyarlayarak sunuyoruz.
+                        </p>
+                    </motion.div>
                 </div>
 
                 {/* 1. Methodology (Process) */}
@@ -197,7 +238,7 @@ export function Solutions() {
                 <div className="mb-24">
                     <h3 className="text-xl font-medium text-white mb-8 flex items-center gap-3">
                         <span className="flex items-center justify-center w-6 h-6 rounded-full bg-white/10 text-xs text-gray-300">03</span>
-                        Öne Çıkan Eğitim Programlarımız
+                        Öne Çıkan Gelişim & Eğitim Programlarımız
                     </h3>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

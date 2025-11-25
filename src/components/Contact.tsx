@@ -8,7 +8,10 @@ import {
     Instagram,
     ArrowUp,
     Send,
-    BookOpen
+    Facebook,
+    Youtube,
+    Twitter,
+    MessageCircle
 } from 'lucide-react';
 
 export function Contact() {
@@ -38,8 +41,8 @@ export function Contact() {
                     >
                         <div className="mb-12">
                             <h2 className="text-5xl md:text-6xl font-black text-white mb-6">
-                                İletişime <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">Geçelim.</span>
+                                Çözüm <br />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-200">Neredeyse Oradayız.</span>
                             </h2>
                             <p className="text-xl text-gray-400 font-light">
                                 Projeleriniz ve iş birlikleri için bize ulaşın.
@@ -78,6 +81,16 @@ export function Contact() {
                                 </div>
                             </a>
 
+                            <a href="https://wa.me/905322104607" target="_blank" rel="noopener noreferrer" className="flex items-center gap-6 group">
+                                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#25D366]/20 to-[#128C7E]/20 flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300 border border-white/10">
+                                    <MessageCircle className="w-6 h-6" />
+                                </div>
+                                <div>
+                                    <p className="text-sm text-gray-500 uppercase tracking-wider mb-1">WhatsApp Hattı</p>
+                                    <p className="text-lg text-white font-medium group-hover:text-[#25D366] transition-colors">+90 532 210 46 07</p>
+                                </div>
+                            </a>
+
                             <div className="flex items-start gap-6 group">
                                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300 border border-white/10 shrink-0">
                                     <MapPin className="w-6 h-6" />
@@ -99,8 +112,14 @@ export function Contact() {
                                 <a href="https://www.instagram.com/murattavsanci" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#E1306C] hover:border-[#E1306C] transition-all duration-300">
                                     <Instagram className="w-5 h-5" />
                                 </a>
-                                <a href="https://murattavsanci.blogspot.com" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-orange-500 hover:border-orange-500 transition-all duration-300" title="Blog">
-                                    <BookOpen className="w-5 h-5" />
+                                <a href="https://www.facebook.com/murat.tavsanci.7" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#1877F2] hover:border-[#1877F2] transition-all duration-300">
+                                    <Facebook className="w-5 h-5" />
+                                </a>
+                                <a href="https://www.youtube.com/@cokparakazandranadam" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#FF0000] hover:border-[#FF0000] transition-all duration-300">
+                                    <Youtube className="w-5 h-5" />
+                                </a>
+                                <a href="https://x.com/murattavsanci" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-black hover:border-white/20 transition-all duration-300">
+                                    <Twitter className="w-5 h-5" />
                                 </a>
                             </div>
 

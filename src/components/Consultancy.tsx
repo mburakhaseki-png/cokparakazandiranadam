@@ -1,133 +1,148 @@
 import { motion } from 'framer-motion';
-import {
-    Users,
-    Coins,
-    Target,
-    Briefcase,
-    ArrowDown,
-    Building2
-} from 'lucide-react';
+import { TrendingUp, Users, Target, Briefcase, ArrowDown, Building2 } from 'lucide-react';
 
 export function Consultancy() {
-    const services = [
+    const features = [
         {
-            id: "01",
             title: "Organizasyonel Yapılanma",
-            icon: <Users className="w-8 h-8" />,
+            icon: <Users className="w-6 h-6" />,
             items: [
-                { title: "Ekip Kurulumu & Re-Organizasyon", desc: "Satış kadrolarının sıfırdan kurulması veya mevcut yapının verimlilik odaklı yeniden düzenlenmesi." },
-                { title: "Kanal Yönetimi", desc: "Mağaza ve bayi ağlarının günün şartlarına uygun şekilde yeniden yapılandırılması." }
+                {
+                    subtitle: "Ekip Kurulumu & Re-Organizasyon",
+                    desc: "Satış kadrolarının sıfırdan kurulması veya mevcut yapının verimlilik odaklı yeniden düzenlenmesi."
+                },
+                {
+                    subtitle: "Kanal & Bayi Yönetimi",
+                    desc: "Saha, mağaza ve bayi ağlarının günün şartlarına uygun şekilde yeniden yapılandırılması."
+                }
             ]
         },
         {
-            id: "02",
             title: "Finansal Motivasyon",
-            icon: <Coins className="w-8 h-8" />,
+            icon: <TrendingUp className="w-6 h-6" />,
             items: [
-                { title: "Prim & Bonus Kurgusu", desc: "Adil, şeffaf ve satışı tetikleyen prim sistemlerinin oluşturulması." },
-                { title: "Incentive (Teşvik) Tasarımı", desc: "Ekibi hedefe kilitleyen özel ödül ve yarışma kurgularının tasarlanması." }
+                {
+                    subtitle: "Prim & Bonus Kurgusu",
+                    desc: <>Adil, şeffaf ve satışı tetikleyen <span className="text-purple-300">prim & kazanç sistemlerinin</span> oluşturulması.</>
+                },
+                {
+                    subtitle: "Incentive (Teşvik) Tasarımı",
+                    desc: <>Ekibi yüksek <span className="text-purple-300">hedefe kilitleyen</span> özel ödül ve yarışma kurgularının tasarlanması.</>
+                }
             ]
         },
         {
-            id: "03",
-            title: "Performans Yönetimi",
-            icon: <Target className="w-8 h-8" />,
+            title: "İş Çıktıları Yönetimi",
+            icon: <Target className="w-6 h-6" />,
             items: [
-                { title: "KPI & Hedef Belirleme", desc: "Ölçülebilir, gerçekçi hedef ve performans göstergesi (KPI) sistemlerinin netleştirilmesi." },
-                { title: "Raporlama Standartları", desc: "Yönetilebilir ve izlenebilir raporlama sistemlerinin kuruma entegre edilmesi." }
+                {
+                    subtitle: "KPI & Hedef Belirleme",
+                    desc: "Ölçülebilir, gerçekçi hedef ve performans göstergesi (KPI) sistemlerinin netleştirilmesi."
+                },
+                {
+                    subtitle: "Veri Standartları",
+                    desc: "Yönetilebilir ve izlenebilir raporlama sistemlerinin kuruma entegre edilmesi."
+                }
             ]
         },
         {
-            id: "04",
             title: "Yönetimsel Rehberlik",
-            icon: <Briefcase className="w-8 h-8" />,
+            icon: <Briefcase className="w-6 h-6" />,
             items: [
-                { title: "Bağımsız Yönetim Danışmanlığı", desc: "Aylık performans sunumlarına 'Bağımsız Yönetim Kurulu Üyesi' vizyonuyla katılım." },
-                { title: "Stratejik Yönlendirme", desc: "Dış göz olarak stratejik kararlarda rehberlik ve yönlendirme sağlanması." }
+                {
+                    subtitle: "Bağımsız Yönetim Danışmanlığı",
+                    desc: <>Aylık performans sunumlarına <span className="text-purple-300">“Satış Bağımsız Yönetim Kurulu Üyesi”</span> vizyonuyla katılım.</>
+                },
+                {
+                    subtitle: "Stratejik Yönlendirme",
+                    desc: "Dış göz olarak stratejik kararlarda rehberlik ve yönlendirme sağlanması."
+                }
             ]
         }
     ];
 
     return (
-        <section id="consultancy" className="relative min-h-screen py-20 bg-[#050505] overflow-hidden">
+        <section id="consultancy" className="relative py-24 bg-[#080808] overflow-hidden">
 
             {/* Background Elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-gradient-to-b from-purple-900/10 to-transparent" />
-                <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-gradient-to-tl from-blue-900/10 to-transparent rounded-full blur-[100px]" />
+                <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-purple-900/10 rounded-full blur-[100px]" />
+                <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-900/10 rounded-full blur-[100px]" />
             </div>
 
             <div className="container mx-auto px-6 md:px-12 relative z-10">
 
                 {/* Header */}
-                <div className="max-w-4xl mb-24">
+                <div className="max-w-4xl mx-auto text-center mb-20">
                     <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="flex items-center gap-4 mb-6"
                     >
-                        <div className="h-px w-12 bg-blue-500" />
-                        <span className="text-blue-400 font-medium tracking-widest uppercase text-sm">Danışmanlık</span>
+                        <div className="flex items-center justify-center gap-4 mb-6">
+                            <div className="h-px w-12 bg-purple-500" />
+                            <span className="text-purple-400 font-medium tracking-widest uppercase text-sm">Danışmanlık</span>
+                            <div className="h-px w-12 bg-purple-500" />
+                        </div>
+
+                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                            Sistem Kurguluyor, <br />
+                            <span className="text-purple-500">Süreci Yönetiyoruz.</span>
+                        </h2>
+
+                        <p className="text-xl text-gray-400 leading-relaxed font-light">
+                            Satış operasyonunuzu şansa bırakmıyoruz. Ekip kurulumundan prim sistemine kadar, <span className="text-purple-300">satışın matematiğini ve psikolojisini</span> sizin için, <span className="text-purple-300 font-bold">SİZİNLE BERABER</span> kurguluyoruz.
+                        </p>
                     </motion.div>
-
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="text-5xl md:text-7xl font-light text-white mb-8 leading-tight"
-                    >
-                        Sistem Kuruyor, <br />
-                        <span className="font-bold text-white">Süreci Yönetiyoruz.</span>
-                    </motion.h2>
-
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
-                        className="text-xl text-gray-400 max-w-2xl leading-relaxed font-light"
-                    >
-                        Satış operasyonunuzu şansa bırakmıyoruz. Ekip kurulumundan prim sistemine kadar, <span className="text-white font-medium">satışın matematiğini ve psikolojisini</span> sizin için kurguluyoruz.
-                    </motion.p>
                 </div>
 
-                {/* Services Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32">
-                    {services.map((service, index) => (
+                {/* Features Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+                    {features.map((feature, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1, duration: 0.5 }}
-                            className="group relative p-10 rounded-3xl bg-[#0a0a0a] border border-white/5 hover:border-blue-500/30 transition-all duration-500"
+                            className="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-purple-500/30 transition-all duration-300 hover:bg-white/[0.07]"
                         >
-                            <div className="absolute top-10 right-10 text-8xl font-black text-white/5 select-none group-hover:text-blue-500/5 transition-colors duration-500">
-                                {service.id}
+                            <div className="flex items-center gap-4 mb-8">
+                                <div className="p-3 rounded-xl bg-purple-500/20 text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-colors duration-300">
+                                    {feature.icon}
+                                </div>
+                                <h3 className="text-2xl font-bold text-white">{feature.title}</h3>
                             </div>
 
-                            <div className="relative z-10">
-                                <div className="w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 mb-8 group-hover:bg-blue-500 group-hover:text-white transition-all duration-500">
-                                    {service.icon}
-                                </div>
-
-                                <h3 className="text-2xl font-bold text-white mb-8">{service.title}</h3>
-
-                                <div className="space-y-6">
-                                    {service.items.map((item, idx) => (
-                                        <div key={idx} className="border-l-2 border-white/10 pl-6 group-hover:border-blue-500/30 transition-colors duration-300">
-                                            <h4 className="text-lg font-medium text-white mb-2">{item.title}</h4>
-                                            <p className="text-sm text-gray-400 leading-relaxed">{item.desc}</p>
-                                        </div>
-                                    ))}
-                                </div>
+                            <div className="space-y-8">
+                                {feature.items.map((item, idx) => (
+                                    <div key={idx} className="relative pl-6 border-l border-white/10">
+                                        <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-purple-500" />
+                                        <h4 className="text-lg font-bold text-white mb-2">{item.subtitle}</h4>
+                                        <p className="text-gray-400 leading-relaxed font-light text-sm">
+                                            {item.desc}
+                                        </p>
+                                    </div>
+                                ))}
                             </div>
                         </motion.div>
                     ))}
                 </div>
+
+                {/* Consultant Staff Section */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="max-w-3xl mx-auto text-center p-8 rounded-3xl bg-gradient-to-b from-purple-900/20 to-transparent border border-purple-500/20"
+                >
+                    <h3 className="text-2xl font-bold text-white mb-4">Danışman Kadromuz</h3>
+                    <p className="text-gray-300 leading-relaxed">
+                        Alanında uzman 10 farklı danışman kadromuz ile gerekli durumlarda çözümler sunuyoruz.
+                    </p>
+                </motion.div>
 
                 {/* GROWX Section */}
                 <motion.div
@@ -135,10 +150,10 @@ export function Consultancy() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="relative rounded-[3rem] bg-gradient-to-br from-[#0f0f0f] to-[#050505] border border-white/10 p-12 md:p-20 text-center overflow-hidden"
+                    className="relative rounded-[3rem] bg-gradient-to-br from-[#0f0f0f] to-[#050505] border border-white/10 p-12 md:p-20 text-center overflow-hidden mt-20"
                 >
                     <div className="absolute inset-0 bg-[url('/noise.png')] opacity-20" />
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-blue-500/5 to-transparent pointer-events-none" />
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-purple-500/5 to-transparent pointer-events-none" />
 
                     <div className="relative z-10 flex flex-col items-center">
                         <div className="flex items-center gap-3 mb-6 px-4 py-2 rounded-full bg-white/5 border border-white/10">
@@ -160,13 +175,13 @@ export function Consultancy() {
                             className="flex flex-col items-center gap-4 cursor-pointer group"
                             whileHover={{ y: 5 }}
                         >
-                            <span className="text-sm font-bold text-white uppercase tracking-widest group-hover:text-blue-400 transition-colors">
+                            <span className="text-sm font-bold text-white uppercase tracking-widest group-hover:text-purple-400 transition-colors">
                                 Grup Şirketimiz GROWX'i Tanıyın
                             </span>
                             <motion.div
                                 animate={{ y: [0, 10, 0] }}
                                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                                className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center text-white shadow-lg shadow-blue-500/30"
+                                className="w-12 h-12 rounded-full bg-purple-500 flex items-center justify-center text-white shadow-lg shadow-purple-500/30"
                             >
                                 <ArrowDown className="w-6 h-6" />
                             </motion.div>
