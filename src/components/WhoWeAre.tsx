@@ -250,8 +250,9 @@ export function WhoWeAre() {
                         <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-[#050505] to-transparent z-10" />
                         <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-[#050505] to-transparent z-10" />
 
+                        {/* Desktop Ticker (Slower) */}
                         <motion.div
-                            className="flex gap-16 whitespace-nowrap"
+                            className="hidden md:flex gap-16 whitespace-nowrap"
                             animate={{ x: "-50%" }}
                             transition={{
                                 duration: 40,
@@ -260,7 +261,24 @@ export function WhoWeAre() {
                             }}
                         >
                             {[...references, ...references].map((ref, index) => (
-                                <span key={index} className="text-2xl md:text-3xl font-bold text-gray-500 hover:text-white transition-colors cursor-default">
+                                <span key={index} className="text-3xl font-bold text-gray-500 hover:text-white transition-colors cursor-default">
+                                    {ref}
+                                </span>
+                            ))}
+                        </motion.div>
+
+                        {/* Mobile Ticker (Faster) */}
+                        <motion.div
+                            className="flex md:hidden gap-8 whitespace-nowrap"
+                            animate={{ x: "-50%" }}
+                            transition={{
+                                duration: 15,
+                                repeat: Infinity,
+                                ease: "linear"
+                            }}
+                        >
+                            {[...references, ...references].map((ref, index) => (
+                                <span key={index} className="text-2xl font-bold text-gray-500 hover:text-white transition-colors cursor-default">
                                     {ref}
                                 </span>
                             ))}
