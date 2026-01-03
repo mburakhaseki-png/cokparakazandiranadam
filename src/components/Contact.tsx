@@ -95,13 +95,13 @@ export function Contact() {
                             </a>
 
                             {/* Email */}
-                            <a href="mailto:murat.tavsanci@growx.com.tr" className="flex items-center gap-4 md:gap-6 group p-4 md:p-0 rounded-2xl bg-white/5 md:bg-transparent border border-white/10 md:border-none hover:bg-white/10 transition-all">
+                            <a href="mailto:info@cokparakazandiranadam.com" className="flex items-center gap-4 md:gap-6 group p-4 md:p-0 rounded-2xl bg-white/5 md:bg-transparent border border-white/10 md:border-none hover:bg-white/10 transition-all">
                                 <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300 border border-white/10 shrink-0">
                                     <Mail className="w-5 h-5 md:w-6 md:h-6" />
                                 </div>
                                 <div className="overflow-hidden">
                                     <p className="text-xs md:text-sm text-gray-500 uppercase tracking-wider mb-0.5 md:mb-1">E-Posta</p>
-                                    <p className="text-base md:text-lg text-white font-medium group-hover:text-purple-400 transition-colors truncate">murat.tavsanci@growx.com.tr</p>
+                                    <p className="text-base md:text-lg text-white font-medium group-hover:text-purple-400 transition-colors truncate">info@cokparakazandiranadam.com</p>
                                 </div>
                             </a>
 
